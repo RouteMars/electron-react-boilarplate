@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import { is } from "@electron-toolkit/utils";
 import { registerIPC } from "./register";
+import Common from "@util/common";
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -10,12 +11,13 @@ export const createWindow = (): void => {
     width: 800,
     height: 600,
     webPreferences: {
+      // devTools: is.dev,
       nodeIntegration: true,
       // contextIsolation: true,
       // nodeIntegrationInWorker: false,
       // nodeIntegrationInSubFrames: false,
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
-    },
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
+    }
   });
 
   mainWindow.on("ready-to-show", mainWindow.show);
@@ -32,15 +34,16 @@ export const createWindow = (): void => {
   // });
 
   // load - index.html
-  // void mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-  mainWindow
-    .loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
-    .then(() => {
-      console.log("LOAD~!!!");
-      console.log(MAIN_WINDOW_WEBPACK_ENTRY);
-    })
-    .catch((reason) => {
-      console.log("FAIL~!!!");
-      console.log(reason);
-    });
+  if (is.dev) {
+    mainWindow
+      .loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
+      .then(() => {
+        Common.debug(MAIN_WINDOW_WEBPACK_ENTRY);
+      })
+      .catch((reason) => {
+        Common.debug(reason);
+      });
+  } else {
+    void mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+  }
 };

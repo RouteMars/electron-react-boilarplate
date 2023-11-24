@@ -1,13 +1,13 @@
 {
-  "name": "electron4",
-  "productName": "electron4",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "name": "electron-react-boliarplate",
+  "productName": "electron",
+  "version": "0.0.1",
+  "description": "Electron application",
   "license": "MIT",
   "keywords": [],
   "author": {
-    "name": "공범식",
-    "email": "bsgong@humaxmobility.co.kr"
+    "name": "kkongs",
+    "email": "routemars@nate.com"
   },
   "main": ".webpack/main",
   "scripts": {
@@ -50,6 +50,8 @@
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^4.9.5"
   }
 }
