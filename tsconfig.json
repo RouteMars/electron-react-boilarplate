@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "jsx": "react",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ],
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
+
+  },
+  "include": [
+    "src/**/*",
+    "asset/**/*"
+  ]
+}

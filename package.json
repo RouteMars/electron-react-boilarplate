@@ -1,0 +1,55 @@
+{
+  "name": "electron4",
+  "productName": "electron4",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "license": "MIT",
+  "keywords": [],
+  "author": {
+    "name": "공범식",
+    "email": "bsgong@humaxmobility.co.kr"
+  },
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^2.0.0",
+    "@electron-toolkit/utils": "^2.0.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.1.0",
+    "@electron-forge/maker-deb": "^7.1.0",
+    "@electron-forge/maker-rpm": "^7.1.0",
+    "@electron-forge/maker-squirrel": "^7.1.0",
+    "@electron-forge/maker-zip": "^7.1.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.1.0",
+    "@electron-forge/plugin-webpack": "^7.1.0",
+    "@electron-toolkit/eslint-config": "^1.0.1",
+    "@electron-toolkit/eslint-config-prettier": "^1.0.1",
+    "@electron-toolkit/eslint-config-ts": "^1.0.0",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
+    "@vercel/webpack-asset-relocator-loader": "^1.7.3",
+    "css-loader": "^6.8.1",
+    "electron": "^27.1.2",
+    "eslint": "^8.54.0",
+    "eslint-plugin-import": "^2.29.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "node-loader": "^2.0.0",
+    "prettier": "^3.1.0",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
