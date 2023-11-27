@@ -1,8 +1,10 @@
 import { app, BrowserWindow } from 'electron';
-import { createWindow } from './window';
+
 import { optimizer, platform } from '@electron-toolkit/utils';
 // import {platform} from 'node:process';
 import Common from '@util/common';
+
+import { createWindow } from './window';
 
 if (require('electron-squirrel-startup')) {
   app.quit();

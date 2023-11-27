@@ -1,4 +1,5 @@
 import { BrowserWindow, shell } from 'electron';
+
 import { ipcHelper } from '@electron-toolkit/utils';
 
 export const registerIPC = (browserWindow: BrowserWindow): void => {

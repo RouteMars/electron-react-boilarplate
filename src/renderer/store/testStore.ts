@@ -1,5 +1,5 @@
-import Store from 'electron-store';
 import Common from '@util/common';
+import Store from 'electron-store';
 
 const store = new Store();
 
