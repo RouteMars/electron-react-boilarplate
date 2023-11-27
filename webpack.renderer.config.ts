@@ -10,10 +10,20 @@ rules.push({
 });
 
 export const rendererConfig: Configuration = {
+  // target: 'electron-renderer',
   module: { rules },
   plugins,
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
     plugins: [new TsconfigPathsPlugin()],
+    // fallback: {
+    //   fs: false,
+    //   process: false,
+    //   path: false,
+    //   assert: false,
+    //   os: false,
+    //   util: false,
+    //   // path: require.resolve('path-browserify'),
+    // },
   },
 };

@@ -1,10 +1,11 @@
 import { app, BrowserWindow } from 'electron';
 
 import { optimizer, platform } from '@electron-toolkit/utils';
-// import {platform} from 'node:process';
 import Common from '@util/common';
 
+import { init as updaterInit, checkInterval } from './updater';
 import { createWindow } from './window';
+// import {platform} from 'node:process';
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -28,6 +29,10 @@ app.whenReady().then(() => {
     Common.debug('browser-window-created');
     optimizer.watchWindowShortcuts(window);
   });
+
+  // Updater
+  updaterInit();
+  checkInterval();
 });
 
 app.on('window-all-closed', () => {

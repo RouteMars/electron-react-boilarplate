@@ -1,4 +1,4 @@
-const debug = (message?: string | unknown): void => {
+const debug = (...message: (string | unknown | undefined)[]): void => {
   console.log('📀:) ' + message);
 };
 

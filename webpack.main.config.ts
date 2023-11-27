@@ -5,16 +5,21 @@ import { plugins } from './webpack.plugins';
 import { rules } from './webpack.rules';
 
 export const mainConfig: Configuration = {
-  /**
-   * This is the main entry point for your application, it's the first file
-   * that runs in the main process.
-   */
+  // target: 'electron-main',
   entry: './src/main/index.ts',
-  // Put your normal webpack config below here
   module: { rules },
   plugins,
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
     plugins: [new TsconfigPathsPlugin()],
+    // fallback: {
+    //   fs: false,
+    //   process: false,
+    //   path: false,
+    //   assert: false,
+    //   os: false,
+    //   util: false,
+    //   // path: require.resolve('path-browserify'),
+    // },
   },
 };

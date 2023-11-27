@@ -44,6 +44,7 @@
         },
         "newlines-between": "always"
       }
-    ]
+    ],
+    "@typescript-eslint/explicit-function-return-type": 0
   }
 }
