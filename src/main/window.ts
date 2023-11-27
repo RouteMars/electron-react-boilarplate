@@ -10,8 +10,10 @@ declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 export const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 800,
+    minWidth: 640,
+    minHeight: 480,
     webPreferences: {
       // devTools: is.dev,
       nodeIntegration: true,

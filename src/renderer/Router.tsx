@@ -3,7 +3,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import First from './page/First';
 
-const App = (): ReactElement => {
+const Router = (): ReactElement => {
   return (
     <HashRouter>
       <Routes>
@@ -13,4 +13,4 @@ const App = (): ReactElement => {
   );
 };
 
-export default App;
+export default Router;
