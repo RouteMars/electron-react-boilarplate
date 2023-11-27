@@ -7,8 +7,11 @@
       "*": [
         "node_modules/*"
       ],
-      "@asset/*": [
-        "asset/*"
+      "@main/*": [
+        "src/main/*"
+      ],
+      "@renderer/*": [
+        "src/renderer/*"
       ],
       "@util/*": [
         "src/util/*"
@@ -16,7 +19,6 @@
     }
   },
   "include": [
-    "src/**/*",
-    "asset/**/*"
-  ],
+    "src/**/*"
+  ]
 }
