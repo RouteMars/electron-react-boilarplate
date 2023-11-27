@@ -1,16 +1,16 @@
-import { BrowserWindow, shell } from "electron";
-import { ipcHelper } from "@electron-toolkit/utils";
+import { BrowserWindow, shell } from 'electron';
+import { ipcHelper } from '@electron-toolkit/utils';
 
 export const registerIPC = (browserWindow: BrowserWindow): void => {
-  ipcHelper.handle("open-url", (event, url) => {
+  ipcHelper.handle('open-url', (event, url) => {
     void shell.openExternal(url);
   });
 
   // Window Control
-  ipcHelper.handle("window-close", browserWindow.close);
-  ipcHelper.handle("window-minimize", browserWindow.minimize);
-  ipcHelper.handle("window-maximize", browserWindow.maximize);
-  ipcHelper.handle("window-toggle-maximize", () => {
+  ipcHelper.handle('window-close', browserWindow.close);
+  ipcHelper.handle('window-minimize', browserWindow.minimize);
+  ipcHelper.handle('window-maximize', browserWindow.maximize);
+  ipcHelper.handle('window-toggle-maximize', () => {
     if (browserWindow.isMaximized()) {
       browserWindow.unmaximize();
     } else {
@@ -19,36 +19,36 @@ export const registerIPC = (browserWindow: BrowserWindow): void => {
   });
 
   // Web Control
-  ipcHelper.handle("web-undo", browserWindow.webContents.undo);
-  ipcHelper.handle("web-redo", browserWindow.webContents.redo);
-  ipcHelper.handle("web-cut", browserWindow.webContents.cut);
-  ipcHelper.handle("web-copy", browserWindow.webContents.copy);
-  ipcHelper.handle("web-paste", browserWindow.webContents.paste);
-  ipcHelper.handle("web-delete", browserWindow.webContents.delete);
-  ipcHelper.handle("web-select-all", browserWindow.webContents.selectAll);
-  ipcHelper.handle("web-reload", browserWindow.webContents.reload);
+  ipcHelper.handle('web-undo', browserWindow.webContents.undo);
+  ipcHelper.handle('web-redo', browserWindow.webContents.redo);
+  ipcHelper.handle('web-cut', browserWindow.webContents.cut);
+  ipcHelper.handle('web-copy', browserWindow.webContents.copy);
+  ipcHelper.handle('web-paste', browserWindow.webContents.paste);
+  ipcHelper.handle('web-delete', browserWindow.webContents.delete);
+  ipcHelper.handle('web-select-all', browserWindow.webContents.selectAll);
+  ipcHelper.handle('web-reload', browserWindow.webContents.reload);
   ipcHelper.handle(
-    "web-force-reload",
-    browserWindow.webContents.reloadIgnoringCache
+    'web-force-reload',
+    browserWindow.webContents.reloadIgnoringCache,
   );
   ipcHelper.handle(
-    "web-toggle-devtools",
-    browserWindow.webContents.toggleDevTools
+    'web-toggle-devtools',
+    browserWindow.webContents.toggleDevTools,
   );
-  ipcHelper.handle("web-actual-size", () => {
+  ipcHelper.handle('web-actual-size', () => {
     browserWindow.webContents.setZoomLevel(0);
   });
-  ipcHelper.handle("web-zoom-in", () => {
+  ipcHelper.handle('web-zoom-in', () => {
     browserWindow.webContents.setZoomLevel(
-      browserWindow.webContents.zoomLevel + 0.5
+      browserWindow.webContents.zoomLevel + 0.5,
     );
   });
-  ipcHelper.handle("web-zoom-out", () => {
+  ipcHelper.handle('web-zoom-out', () => {
     browserWindow.webContents.setZoomLevel(
-      browserWindow.webContents.zoomLevel - 0.5
+      browserWindow.webContents.zoomLevel - 0.5,
     );
   });
-  ipcHelper.handle("web-toggle-fullscreen", () => {
+  ipcHelper.handle('web-toggle-fullscreen', () => {
     browserWindow.setFullScreen(!browserWindow.fullScreen);
   });
 };

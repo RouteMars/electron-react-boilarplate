@@ -1,7 +1,7 @@
-import { app, BrowserWindow } from "electron";
-import { is } from "@electron-toolkit/utils";
-import { registerIPC } from "./register";
-import Common from "@util/common";
+import { app, BrowserWindow } from 'electron';
+import { is } from '@electron-toolkit/utils';
+import { registerIPC } from './register';
+import Common from '@util/common';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -16,12 +16,12 @@ export const createWindow = (): void => {
       // contextIsolation: true,
       // nodeIntegrationInWorker: false,
       // nodeIntegrationInSubFrames: false,
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
-    }
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+    },
   });
 
-  mainWindow.on("ready-to-show", mainWindow.show);
-  mainWindow.on("close", app.quit);
+  mainWindow.on('ready-to-show', mainWindow.show);
+  mainWindow.on('close', app.quit);
   registerIPC(mainWindow);
 
   if (is.dev) {
