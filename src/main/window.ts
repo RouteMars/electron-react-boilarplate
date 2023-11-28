@@ -3,7 +3,7 @@ import { app, BrowserWindow } from 'electron';
 import { is } from '@electron-toolkit/utils';
 import Common from '@util/common';
 
-import { registerIPC } from './mainRegister';
+import { registerIPC } from './ipc/mainRegister';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
