@@ -1,3 +1,4 @@
+import { onTest, sendTest } from '@renderer/ipc/rendererRegister';
 import { useGetPokemonsQuery } from '@renderer/redux/api/common/common.api';
 import { setTestData } from '@renderer/redux/slice/common/common.slice';
 import { useAppDispatch, useAppSelector } from '@renderer/redux/store';
@@ -17,21 +18,24 @@ const First = (): ReactElement => {
     dispatch(setTestData('test 1111'));
   };
 
+  const init = () => {
+    onTest((event, res) => {
+      // Common.debug(event);
+      Common.debug(res);
+    });
+  };
+
   useEffect(() => {
-    Common.debug('====================');
-    Common.debug(testData);
+    // Common.debug(testData);
   }, [testData]);
 
   useEffect(() => {
-    Common.debug('====================');
     Common.debug(JSON.stringify(data));
-    // Common.debug(data.results);
+    sendTest('test~!!');
   }, [data]);
 
   useEffect(() => {
-    Common.debug('====================');
-    Common.debug('First~!');
-    setTest();
+    init();
   }, []);
 
   return (

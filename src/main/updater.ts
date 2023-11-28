@@ -71,10 +71,10 @@ const init = () => {
 };
 
 const checkInterval = () => {
-  setInterval(() => {
-    Common.debug(autoUpdater.getFeedURL());
-    autoUpdater.checkForUpdates();
-  }, 60 * 1000);
+  // setInterval(() => {
+  Common.debug(autoUpdater.getFeedURL());
+  autoUpdater.checkForUpdates();
+  // }, 60 * 1000);
 };
 
 export { init, checkInterval };

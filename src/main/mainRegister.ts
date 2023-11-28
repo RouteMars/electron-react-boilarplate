@@ -1,8 +1,18 @@
 import { BrowserWindow, shell } from 'electron';
 
 import { ipcHelper } from '@electron-toolkit/utils';
+import Common from '@util/common';
+import { CHANNEL_MAIN_TEST, CHANNEL_RENDERER_TEST } from '@util/ipcChannel';
 
-export const registerIPC = (browserWindow: BrowserWindow): void => {
+const customIPC = () => {
+  ipcHelper.on(CHANNEL_MAIN_TEST, (event, res) => {
+    // Common.debug(event);
+    Common.debug(res);
+    event.sender.send(CHANNEL_RENDERER_TEST, 'test hello');
+  });
+};
+
+const registerIPC = (browserWindow: BrowserWindow) => {
   ipcHelper.handle('open-url', (event, url) => {
     void shell.openExternal(url);
   });
@@ -52,4 +62,8 @@ export const registerIPC = (browserWindow: BrowserWindow): void => {
   ipcHelper.handle('web-toggle-fullscreen', () => {
     browserWindow.setFullScreen(!browserWindow.fullScreen);
   });
+
+  customIPC();
 };
+
+export { registerIPC };
