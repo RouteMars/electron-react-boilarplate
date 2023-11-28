@@ -1,8 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import CommonSlice from '@renderer/redux/common/common.slice';
 import Common from '@util/common';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  common: CommonSlice,
+});
 
 const store = configureStore({
   reducer: rootReducer,
