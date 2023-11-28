@@ -30,7 +30,7 @@ const Example = (): ReactElement => {
   }, [testData]);
 
   useEffect(() => {
-    Common.debug(JSON.stringify(data));
+    // Common.debug(JSON.stringify(data));
     sendTest('test~!!');
   }, [data]);
 
