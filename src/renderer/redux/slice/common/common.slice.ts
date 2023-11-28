@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { CommonType } from '@util/type/commonType';
+import { CommonType } from '@renderer/redux/type/commonType';
 
 interface CommonState {
   testData: string;

@@ -1,16 +1,19 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import CommonSlice from '@renderer/redux/common/common.slice';
+import { pokemonApi } from '@renderer/redux/api/common/common.api';
+import CommonSlice from '@renderer/redux/slice/common/common.slice';
 import Common from '@util/common';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 const rootReducer = combineReducers({
   common: CommonSlice,
+  [pokemonApi.reducerPath]: pokemonApi.reducer,
 });
 
 const store = configureStore({
   reducer: rootReducer,
   devTools: Common.isDev(),
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware),
   // enhancers: (defaultEnhancers) => [...defaultEnhancers]
 });
 
