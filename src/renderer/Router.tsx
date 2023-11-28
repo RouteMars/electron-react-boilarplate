@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import First from './page/First';
+import Example from './page/Example';
 
 const Router = (): ReactElement => {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<First />} />
+        <Route path="/" element={<Example />} />
       </Routes>
     </HashRouter>
   );

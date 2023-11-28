@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '@renderer/redux/store';
 import Common from '@util/common';
 import React, { ReactElement, useEffect } from 'react';
 
-const First = (): ReactElement => {
+const Example = (): ReactElement => {
   const dispatch = useAppDispatch();
 
   const { data } = useGetPokemonsQuery(undefined);
@@ -45,4 +45,4 @@ const First = (): ReactElement => {
   );
 };
 
-export default First;
+export default Example;
